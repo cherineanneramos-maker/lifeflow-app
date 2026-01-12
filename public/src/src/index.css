@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --minimalist-bg: #fafafa;
+    --minimalist-card: #ffffff;
+    --minimalist-text: #374151;
+    --minimalist-accent: #9ca3af;
+    
+    --modern-bg: #0f172a;
+    --modern-card: #1e293b;
+    --modern-text: #f1f5f9;
+    --modern-accent: #38bdf8;
+  }
+
+  .minimalist-theme {
+    --bg-color: var(--minimalist-bg);
+    --card-color: var(--minimalist-card);
+    --text-color: var(--minimalist-text);
+    --accent-color: var(--minimalist-accent);
+  }
+
+  .modern-theme {
+    --bg-color: var(--modern-bg);
+    --card-color: var(--modern-card);
+    --text-color: var(--modern-text);
+    --accent-color: var(--modern-accent);
+  }
+
+  body {
+    @apply transition-colors duration-300;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl p-6 transition-all duration-300;
+    background-color: var(--card-color);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 15%, transparent);
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    background-color: var(--accent-color);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    @apply opacity-90;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border transition-colors duration-200;
+    background-color: color-mix(in srgb, var(--card-color) 98%, transparent);
+    border-color: color-mix(in srgb, var(--accent-color) 20%, transparent);
+  }
+
+  .input-field:focus {
+    @apply outline-none ring-2;
+    border-color: var(--accent-color);
+    ring-color: color-mix(in srgb, var(--accent-color) 30%, transparent);
+  }
+}
